@@ -28,6 +28,9 @@ namespace test
 
             SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
             SeleniumSetMethods.EnterText(driver, "Initial", "Test", "Name");
+            Console.WriteLine("the value " + SeleniumGetMethods.GetTextFromDDL(driver, "TitleId", "Id"));
+            Console.WriteLine("the value " + SeleniumGetMethods.GetText(driver, "Initial",  "Name"));
+
             SeleniumSetMethods.Click(driver, "Save", "Name");
         }
         [Test]
