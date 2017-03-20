@@ -19,15 +19,16 @@ namespace test
         [SetUp]
         public void Initialize()
         {
-            driver.Navigate().GoToUrl("https://google.com");
+            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&amp;Password=&amp;Login=Login");
             Console.WriteLine("go to url");
         }
         [Test]
         public void ExecuteTest()
         {
-            IWebElement element = driver.FindElement(By.Name("q"));
-            element.SendKeys("test");
-            Console.WriteLine("input");
+
+            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
+            SeleniumSetMethods.EnterText(driver, "Initial", "Test", "Name");
+            SeleniumSetMethods.Click(driver, "Save", "Name");
         }
         [Test]
         public void NextTest()
