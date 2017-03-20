@@ -11,7 +11,7 @@ namespace test
 {
     class Program
     {
-        IWebDriver driver = new ChromeDriver();
+        
         static void Main(string[] args)
         {
             
@@ -19,19 +19,20 @@ namespace test
         [SetUp]
         public void Initialize()
         {
-            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&amp;Password=&amp;Login=Login");
+            PropertiesCollection.driver = new ChromeDriver();
+            PropertiesCollection.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&amp;Password=&amp;Login=Login");
             Console.WriteLine("go to url");
         }
         [Test]
         public void ExecuteTest()
         {
 
-            SeleniumSetMethods.SelectDropDown(driver, "TitleId", "Mr.", "Id");
-            SeleniumSetMethods.EnterText(driver, "Initial", "Test", "Name");
-            Console.WriteLine("the value " + SeleniumGetMethods.GetTextFromDDL(driver, "TitleId", "Id"));
-            Console.WriteLine("the value " + SeleniumGetMethods.GetText(driver, "Initial",  "Name"));
+            SeleniumSetMethods.SelectDropDown( "TitleId", "Mr.", ProperyType.Id);
+            SeleniumSetMethods.EnterText("Initial", "Test", ProperyType.Name);
+            Console.WriteLine("the value " + SeleniumGetMethods.GetTextFromDDL("TitleId", ProperyType.Id));
+            Console.WriteLine("the value " + SeleniumGetMethods.GetText("Initial", ProperyType.Name));
 
-            SeleniumSetMethods.Click(driver, "Save", "Name");
+            SeleniumSetMethods.Click("Save", ProperyType.Name);
         }
         [Test]
         public void NextTest()
@@ -41,7 +42,7 @@ namespace test
         [TearDown]
         public void Cleanup()
         {
-            driver.Close();
+            PropertiesCollection.driver.Close();
             Console.WriteLine("close");
         }
 
