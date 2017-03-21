@@ -10,26 +10,18 @@ namespace test
 {
     class SeleniumSetMethods
     {
-        public static void EnterText( string element,string value, ProperyType elementtype)
+        public static void EnterText(IWebElement element, string value)
         {
-            if (elementtype == ProperyType.Id)
-                PropertiesCollection.driver.FindElement(By.Id(element)).SendKeys(value);
-            if (elementtype == ProperyType.Name)
-                PropertiesCollection.driver.FindElement(By.Name(element)).SendKeys(value);
+            element.SendKeys(value);
         }
-        public static void Click( string element, ProperyType elementtype)
+        public static void Click(IWebElement element)
         {
-            if (elementtype == ProperyType.Id)
-                PropertiesCollection.driver.FindElement(By.Id(element)).Click();
-            if (elementtype == ProperyType.Name)
-                PropertiesCollection.driver.FindElement(By.Name(element)).Click();
+            element.Click();
         }
-        public static void SelectDropDown( string element, string value, ProperyType elementtype)
-        {           
-            if (elementtype == ProperyType.Id)
-                new SelectElement(PropertiesCollection.driver.FindElement(By.Id(element))).SelectByText(value);
-            if (elementtype == ProperyType.Name)
-                new SelectElement(PropertiesCollection.driver.FindElement(By.Name(element))).SelectByText(value);
+        public static void SelectDropDown(IWebElement element, string value)
+        {   
+            new SelectElement(element).SelectByText(value);
+           
         }
     }
 }
