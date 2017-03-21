@@ -20,19 +20,24 @@ namespace test
         public void Initialize()
         {
             PropertiesCollection.driver = new ChromeDriver();
-            PropertiesCollection.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&amp;Password=&amp;Login=Login");
+            PropertiesCollection.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
             Console.WriteLine("go to url");
         }
         [Test]
         public void ExecuteTest()
         {
+            LoginPageObject pageLogin = new LoginPageObject();
+            EAPageObject pageEA = pageLogin.Login("execute", "automation");
+            pageEA.FillUserForm("kk", "mart", "kart");
 
-            SeleniumSetMethods.SelectDropDown( "TitleId", "Mr.", ProperyType.Id);
-            SeleniumSetMethods.EnterText("Initial", "Test", ProperyType.Name);
-            Console.WriteLine("the value " + SeleniumGetMethods.GetTextFromDDL("TitleId", ProperyType.Id));
-            Console.WriteLine("the value " + SeleniumGetMethods.GetText("Initial", ProperyType.Name));
 
-            SeleniumSetMethods.Click("Save", ProperyType.Name);
+
+            //SeleniumSetMethods.SelectDropDown( "TitleId", "Mr.", ProperyType.Id);
+            //SeleniumSetMethods.EnterText("Initial", "Test", ProperyType.Name);
+            //Console.WriteLine("the value " + SeleniumGetMethods.GetTextFromDDL("TitleId", ProperyType.Id));
+            //Console.WriteLine("the value " + SeleniumGetMethods.GetText("Initial", ProperyType.Name));
+
+            //SeleniumSetMethods.Click("Save", ProperyType.Name);
         }
         [Test]
         public void NextTest()
