@@ -26,9 +26,11 @@ namespace test
         [Test]
         public void ExecuteTest()
         {
+
+            ExcelLib.PopulateInCollection(@"C:\SomeTestCode\data.xlsx");
             LoginPageObject pageLogin = new LoginPageObject();
-            EAPageObject pageEA = pageLogin.Login("execute", "automation");
-            pageEA.FillUserForm("kk", "mart", "kart");
+            EAPageObject pageEA = pageLogin.Login(ExcelLib.ReadData(1,"UserName"), ExcelLib.ReadData(1, "Password"));
+            pageEA.FillUserForm(ExcelLib.ReadData(1, "Initial"), ExcelLib.ReadData(1, "MiddleName"), ExcelLib.ReadData(1, "FirstName"));
 
 
 
