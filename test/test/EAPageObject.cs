@@ -31,11 +31,14 @@ namespace test
 
         public void FillUserForm(string initial, string middlename, string firstname)
         {
-            SeleniumSetMethods.EnterText(txtInitial, initial);
-            SeleniumSetMethods.EnterText(txtFirstName, firstname);
-            SeleniumSetMethods.EnterText(txtMiddleName, middlename);
-            SeleniumSetMethods.Click(btnSave);
-
+            //SeleniumSetMethods.EnterText(txtInitial, initial);
+            //SeleniumSetMethods.EnterText(txtFirstName, firstname);
+            //SeleniumSetMethods.EnterText(txtMiddleName, middlename);
+            //SeleniumSetMethods.Clicks(btnSave);
+            txtInitial.EnterText(initial);
+            txtFirstName.EnterText(firstname);
+            txtMiddleName.EnterText(middlename);
+            btnSave.Clicks();
             //txtInitial.SendKeys(initial);
             //txtFirstName.SendKeys(firstname);
             //txtMiddleName.SendKeys(middlename);

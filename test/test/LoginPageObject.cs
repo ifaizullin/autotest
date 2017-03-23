@@ -25,10 +25,10 @@ namespace test
 
         public EAPageObject Login(string userName, string password)
         {
-            txtUserName.SendKeys(userName);
-            txtPassword.SendKeys(password);
+            txtUserName.EnterText(userName);
+            txtPassword.EnterText(password);
             btnLogin.Submit();
-
+            
             return new EAPageObject();
         }
 

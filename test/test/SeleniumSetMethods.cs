@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace test
 {
-    class SeleniumSetMethods
+    public static class SeleniumSetMethods
     {
-        public static void EnterText(IWebElement element, string value)
+        public static void EnterText(this IWebElement element, string value)
         {
             element.SendKeys(value);
         }
-        public static void Click(IWebElement element)
+        public static void Clicks(this IWebElement element)
         {
             element.Click();
         }
-        public static void SelectDropDown(IWebElement element, string value)
+        public static void SelectDropDown(this IWebElement element, string value)
         {   
             new SelectElement(element).SelectByText(value);
            
